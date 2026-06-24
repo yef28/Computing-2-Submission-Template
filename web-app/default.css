@@ -1,0 +1,318 @@
+:root
+{
+    --banner-height: 130px;
+    --banner-font-size: 48pt;
+    --eyebrow-font-size: 12pt;
+    --border-width: 2px;
+    --image-border-radius: 6px;
+    --sidebar-width: 250px;
+
+    --sky: #06141a;
+    --pitch: #0b3d2e;
+    --pitch-line: #cbd5cf;
+    --gold: #d4a02a;
+    --floodlight: #f5f5f0;
+
+    --banner-background: var(--sky);
+    --banner-colour: var(--gold);
+    --border-colour: var(--gold);
+    --result-background: #06141ae6;
+    --sidebar-background: #0e2a36;
+    --sidebar-colour: var(--floodlight);
+    --tile-background: var(--pitch);
+    --main-background: var(--sky);
+
+    font-family: "Fira Sans", system-ui, sans-serif;
+}
+
+/* "Anton" is loaded from Google Fonts in index.html <head> */
+
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+#game_board
+{
+    aspect-ratio: 7 / 6;
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--pitch) 0,
+        var(--pitch) calc(100% / 14),
+        #0f4a37 calc(100% / 14),
+        #0f4a37 calc(100% / 7)
+    );
+    border: var(--border-width) solid var(--pitch-line);
+    line-height: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+}
+
+.column
+{
+    display: inline-block;
+    outline: transparent;
+    position: relative;
+    top: -50%;
+    width: calc(100% / 7);
+}
+
+#game_board:hover .column:focus .free
+{
+    filter: none;
+}
+
+#game_board:hover .column:hover .free,
+#game_board .column:focus .free
+{
+    filter: brightness(1.6) drop-shadow(0 0 10px var(--gold));
+}
+
+#game_board .slot
+{
+    align-items: center;
+    aspect-ratio: 1;
+    background: var(--pitch);
+    border: 1px solid var(--pitch-line);
+    border-radius: 50%;
+    display: flex;
+    font-size: 2.4rem;
+    justify-content: center;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    width: 100%;
+}
+
+#game_board .slot.winning
+{
+    animation: net-ripple 0.6s ease-out 2;
+    background: #103;
+}
+
+@keyframes net-ripple
+{
+    0%
+    {
+        transform: scale(1);
+    }
+    50%
+    {
+        transform: scale(1.18);
+    }
+    100%
+    {
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+    #game_board .slot.winning
+    {
+        animation: none;
+        filter: contrast(1.5);
+    }
+}
+
+main
+{
+    background: var(--main-background);
+    height: calc(100% - var(--banner-height));
+    left: var(--sidebar-width);
+    overflow-y: hidden;
+    position: absolute;
+    top: var(--banner-height);
+    width: calc(100% - 2 * var(--sidebar-width));
+}
+
+header
+{
+    background: var(--banner-background);
+    border-bottom: var(--border-width) solid var(--border-colour);
+    height: var(--banner-height);
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+#eyebrow
+{
+    color: var(--pitch-line);
+    font-size: var(--eyebrow-font-size);
+    letter-spacing: 0.3em;
+    margin: 0;
+    padding-top: 1.2ex;
+}
+
+#title
+{
+    color: var(--banner-colour);
+    filter: drop-shadow(2px 2px 1px black);
+    font-family: "Anton", sans-serif;
+    font-size: var(--banner-font-size);
+    letter-spacing: 0.05em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+header a
+{
+    color: var(--sidebar-colour);
+    font-size: 10pt;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+aside
+{
+    background: var(--sidebar-background);
+    color: var(--sidebar-colour);
+    height: calc(100% - var(--banner-height));
+    overflow-y: auto;
+    position: absolute;
+    text-align: center;
+    top: var(--banner-height);
+    width: var(--sidebar-width);
+}
+
+.sidebar h2
+{
+    margin-bottom: 0;
+}
+
+.sidebar .player
+{
+    margin-bottom: 3ex;
+    margin-top: 2ex;
+}
+
+.sidebar .game_info
+{
+    font-weight: bold;
+    margin-bottom: 3ex;
+}
+
+.sidebar .team_label
+{
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.3ex;
+    text-transform: uppercase;
+}
+
+.sidebar .player h2
+{
+    font-family: "Anton", sans-serif;
+    font-size: 18pt;
+    letter-spacing: 0.03em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.token_preview
+{
+    font-size: 2.5rem;
+    margin-top: 0.5ex;
+}
+
+.sidebar .stats table
+{
+    border-collapse: collapse;
+    margin-bottom: 2ex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar .stats caption
+{
+    color: var(--gold);
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5ex;
+    text-transform: uppercase;
+}
+
+.sidebar .stats th,
+.sidebar .stats td
+{
+    font-size: 10pt;
+    padding: 0.2em 0.6em;
+}
+
+#home_player
+{
+    border-right: var(--border-width) solid var(--border-colour);
+    left: 0;
+}
+
+#away_player
+{
+    border-left: var(--border-width) solid var(--border-colour);
+    right: 0;
+}
+
+#result_dialog
+{
+    background: var(--result-background);
+    border: var(--border-width) solid var(--gold);
+    border-radius: var(--image-border-radius);
+    color: var(--sidebar-colour);
+    filter: drop-shadow(4px 4px 2px black);
+    left: 50%;
+    padding: 3ex 4ex;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#result_dialog::backdrop
+{
+    backdrop-filter: blur(2px);
+}
+
+#result_eyebrow
+{
+    color: var(--pitch-line);
+    font-size: 11pt;
+    letter-spacing: 0.3em;
+    margin: 0;
+}
+
+#result_dialog h2
+{
+    color: var(--banner-colour);
+    font-family: "Anton", sans-serif;
+    font-size: 36pt;
+    margin: 0.2ex 0;
+    text-transform: uppercase;
+}
+
+#result_message
+{
+    font-size: 14pt;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+#result_hint
+{
+    color: var(--pitch-line);
+    font-size: 9pt;
+    margin-top: 2ex;
+}

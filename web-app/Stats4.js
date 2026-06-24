@@ -2,8 +2,8 @@
  * Stats4 is a module to load and save game stats and Elo ratings
  * for Connect 4 games.
  * @namespace Stats4
- * @author Yasmin Fryer
- * @version 2025/26
+ * @author A. Freddie Page
+ * @version 2021/22
  */
 const Stats4 = Object.create(null);
 
