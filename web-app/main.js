@@ -1,5 +1,5 @@
 /*jslint browser */
-import R from "../ramda.js";
+import R from "./ramda.js";
 import Connect4 from "./Connect4.js";
 import Stats4 from "./Stats4.js";
 import Countries from "./Countries.js";
