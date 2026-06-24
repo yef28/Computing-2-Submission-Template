@@ -1,7 +1,7 @@
 # Computing 2 Coursework Submission.
-**CID**: [YOUR CID]
+**CID**: 02610827
+**Name**: Yasmin Fryer 
 
-This is the submission template for your Computing 2 Applications coursework submission.
 
 ## Checklist
 ### Install dependencies locally

@@ -4,10 +4,12 @@
     },
     "source": {
         "include": [
-            "web-app/Module.js"
+        "web-app/Connect4.js"
         ],
         "includePattern": "\\.js$",
         "excludePattern": "(node_modules/|docs)"
+    },
+    
     },
     "plugins": [
         "plugins/markdown"
