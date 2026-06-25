@@ -3,7 +3,7 @@
  * competing in the 2026 FIFA World Cup, used to assign each player
  * a flag-themed token in World Cup Connect 4.
  * @namespace Countries
- * @author
+ * @author Yasmin Fryer
  * @version 2025/26
  */
 const Countries = Object.create(null);

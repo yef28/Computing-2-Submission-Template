@@ -3,7 +3,7 @@ import R from "./ramda.js";
  * Connect4.js is a module to model and play "Connect Four" and related games.
  * https://en.wikipedia.org/wiki/Connect_Four
  * @namespace Connect4
- * @author A. Freddie Page
+ * @author Yasmin Fryer
  * @version 2021/22
  */
 const Connect4 = Object.create(null);
@@ -34,15 +34,15 @@ const Connect4 = Object.create(null);
  * @memberof Connect4
  * @enum {string[]}
  * @property {string[]} default ["0", "1", "2"] Displays tokens by their index.
- * @property {string[]} disks ["⚫", "🔴", "🟡"]
+ * @property {string[]} disks ["🇦🇷","🇧🇷","🏴󠁧󠁢󠁥󠁮󠁧󠁿","🇫🇷","🇩🇪","🇯🇵","🇲🇦","🇪🇸","🇺🇸","🇲🇽"]
  * Displays tokens as coloured disks.
- * @property {string[]} zombies ["🟫", "🚧", "🧟"]
+ * @property {string[]} flags ["🇦🇷","🇧🇷","🏴󠁧󠁢󠁥󠁮󠁧󠁿","🇫🇷","🇩🇪","🇯🇵","🇲🇦","🇪🇸","🇺🇸","🇲🇽"]
  * Displays tokens as zombies and barricades.
  */
 Connect4.token_strings = Object.freeze({
     "default": ["0", "1", "2"],
-    "disks": ["⚫", "🔴", "🟡"],
-    "zombies": ["🟫", "🚧", "🧟"]
+    "disks": ["🇦🇷","🇧🇷","🏴󠁧󠁢󠁥󠁮󠁧󠁿","🇫🇷","🇩🇪","🇯🇵","🇲🇦","🇪🇸","🇺🇸","🇲🇽"],
+    "flags": ["🇦🇷","🇧🇷","🏴󠁧󠁢󠁥󠁮󠁧󠁿","🇫🇷","🇩🇪","🇯🇵","🇲🇦","🇪🇸","🇺🇸","🇲🇽"]
 });
 
 /**
